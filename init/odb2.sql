@@ -1,4 +1,4 @@
-INSERT INTO opensips_version (table_name, table_version) values ('load_balancer','3');
+INSERT INTO version (table_name, table_version) values ('load_balancer','3');
 CREATE TABLE opensips_load_balancer (
     id SERIAL PRIMARY KEY NOT NULL,
     group_id INTEGER DEFAULT 0 NOT NULL,
