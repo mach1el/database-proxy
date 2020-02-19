@@ -1,4 +1,4 @@
-INSERT INTO version (table_name, table_version) values ('dialog','10');
+INSERT INTO version (table_name, table_version) values ('opensips_dialog','10');
 CREATE TABLE opensips_dialog (
     dlg_id BIGINT PRIMARY KEY NOT NULL,
     callid VARCHAR(255) NOT NULL,

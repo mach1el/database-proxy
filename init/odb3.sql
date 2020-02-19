@@ -1,4 +1,4 @@
-INSERT INTO version (table_name, table_version) values ('acc','7');
+INSERT INTO version (table_name, table_version) values ('opensips_acc','7');
 CREATE TABLE opensips_acc (
 	id SERIAL PRIMARY KEY NOT NULL,
 	method VARCHAR(16) DEFAULT '' NOT NULL,
