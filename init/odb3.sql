@@ -20,4 +20,4 @@ CREATE TABLE opensips_acc (
 	loading INTEGER DEFAULT 0,
 	prefix VARCHAR(255) DEFAULT ''
 );
-CREATE INDEX callid_idx ON opensips_acc (callid);
+CREATE INDEX acc_callid_idx ON acc (callid);
