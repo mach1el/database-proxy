@@ -1,23 +1,10 @@
-INSERT INTO version (table_name, table_version) values ('opensips_acc','7');
-CREATE TABLE opensips_acc (
-	id SERIAL PRIMARY KEY NOT NULL,
-	method VARCHAR(16) DEFAULT '' NOT NULL,
-	from_tag VARCHAR(64) DEFAULT '' NOT NULL,
-	to_tag VARCHAR(64) DEFAULT '',
-	callid VARCHAR(64) DEFAULT '' NOT NULL,
-	sip_code VARCHAR(3) DEFAULT '' NOT NULL,
-	sip_reason VARCHAR(32) DEFAULT '' NOT NULL,
-	time TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-	duration INTEGER DEFAULT 0,
-	ms_duration INTEGER DEFAULT 0,
-	setuptime INTEGER DEFAULT 0 NOT NULL,
-	created TIMESTAMP WITHOUT TIME ZONE DEFAULT NULL,
-	src_ip VARCHAR(255) DEFAULT '',
-	dst_ip VARCHAR(255) DEFAULT '',
-	caller VARCHAR(255) DEFAULT '',
-	callee VARCHAR(255) DEFAULT '',
-	max INTEGER DEFAULT 0,
-	loading INTEGER DEFAULT 0,
-	prefix VARCHAR(255) DEFAULT ''
+INSERT INTO version (table_name, table_version) values ('opensips_load_balancer','2');
+CREATE TABLE opensips_load_balancer (
+    id SERIAL PRIMARY KEY NOT NULL,
+    group_id INTEGER DEFAULT 0 NOT NULL,
+    dst_uri VARCHAR(128) NOT NULL,
+    resources VARCHAR(255) NOT NULL,
+    probe_mode INTEGER DEFAULT 0 NOT NULL,
+    description VARCHAR(128) DEFAULT NULL
 );
-CREATE INDEX acc_callid_idx ON opensips_acc (callid);
+CREATE INDEX opensips_load_balancer_dsturi_idx ON opensips_load_balancer (dst_uri);
