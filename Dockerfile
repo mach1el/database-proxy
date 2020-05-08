@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:buster
 
 RUN set -eux; \
 	groupadd -r postgres --gid=999; \
@@ -36,7 +36,7 @@ ENV LANG en_US.utf8
 RUN mkdir /docker-entrypoint-initdb.d
 
 RUN wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O- | apt-key add -
-RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" | tee /etc/apt/sources.list.d/postgresql.list
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" | tee /etc/apt/sources.list.d/postgresql.list
 RUN apt-get update && apt-get install -yqq postgresql-10 && rm -rf /var/lib/apt/lists/*
 
 RUN set -eux; \
