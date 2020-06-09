@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:latest
 
 RUN set -eux; \
 	groupadd -r postgres --gid=999; \
