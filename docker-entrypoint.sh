@@ -39,14 +39,6 @@ if [ -z "$(ls -A "$PGDATA")" ]; then
         -w start
 
     echo
-    for f in /docker-entrypoint-initdb.d/*; do
-        case "$f" in
-            *.sh)  echo "$0: running $f"; . "$f" ;;
-            *.sql) echo "$0: running $f"; psql --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" < "$f" && echo ;;
-            *)     echo "$0: ignoring $f" ;;
-        esac
-        echo
-    done
 
     gosu postgres pg_ctl -D "$PGDATA" -m fast -w stop
 
