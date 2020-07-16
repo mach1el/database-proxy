@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:buster
 
 ENV PGSQL_VERSION 12
 
@@ -69,10 +69,12 @@ RUN mkdir -p "$PGDATA" \
   && chown -R postgres:postgres "$PGDATA" \
   && chmod 777 "$PGDATA"
 
+VOLUME /var/lib/postgresql/data
+
 COPY docker-entrypoint.sh /usr/local/bin/
+RUN ln -s usr/local/bin/docker-entrypoint.sh /
 RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
-RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 5432
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["postgres"]
