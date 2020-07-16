@@ -14,7 +14,7 @@ CREATE TABLE opensips_dr_gateways (
     CONSTRAINT opensips_dr_gateways_dr_gw_idx UNIQUE (gwid)
 );
 
-ALTER SEQUENCE dr_gateways_id_seq MAXVALUE 2147483647 CYCLE;
+ALTER SEQUENCE open_dr_gateways_id_seq MAXVALUE 2147483647 CYCLE;
 INSERT INTO version (table_name, table_version) values ('opensips_dr_rules','3');
 CREATE TABLE opensips_dr_rules (
     ruleid SERIAL PRIMARY KEY NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE opensips_dr_carriers (
     CONSTRAINT opensips_dr_carriers_dr_carrier_idx UNIQUE (carrierid)
 );
 
-ALTER SEQUENCE dr_carriers_id_seq MAXVALUE 2147483647 CYCLE;
+ALTER SEQUENCE opensips_dr_carriers_id_seq MAXVALUE 2147483647 CYCLE;
 INSERT INTO version (table_name, table_version) values ('opensips_dr_groups','2');
 CREATE TABLE opensips_dr_groups (
     id SERIAL PRIMARY KEY NOT NULL,
