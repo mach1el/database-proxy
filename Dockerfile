@@ -1,6 +1,6 @@
 FROM debian:buster
 
-ENV PGSQL_VERSION 10
+ENV PGSQL_VERSION 12
 
 RUN set -eux; \
   groupadd -r postgres --gid=999; \
