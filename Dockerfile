@@ -71,6 +71,7 @@ RUN mkdir -p "$PGDATA" \
 
 VOLUME /var/lib/postgresql/data
 
+ADD init /docker-entrypoint-initdb.d/
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh /
 RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
