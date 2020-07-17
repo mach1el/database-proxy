@@ -14,7 +14,7 @@ CREATE TABLE opensips_dr_gateways (
     CONSTRAINT opensips_dr_gateways_dr_gw_idx UNIQUE (gwid)
 );
 
-ALTER SEQUENCE open_dr_gateways_id_seq MAXVALUE 2147483647 CYCLE;
+ALTER SEQUENCE opensips_dr_gateways_id_seq MAXVALUE 2147483647 CYCLE;
 INSERT INTO version (table_name, table_version) values ('opensips_dr_rules','3');
 CREATE TABLE opensips_dr_rules (
     ruleid SERIAL PRIMARY KEY NOT NULL,
